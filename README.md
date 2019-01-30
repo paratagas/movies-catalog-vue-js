@@ -1,4 +1,4 @@
-# vue-simple-blog
+# movies-catalog-vue-js
 
 > A Vue.js project
 
