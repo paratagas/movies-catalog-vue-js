@@ -8,11 +8,12 @@
 
 <script>
   import axios from 'axios';
+  import { DEFAULT_MOVIE_ID } from './constants';
   export default {
     props: ['id'],
     data() {
       return {
-        post: null,
+        post: DEFAULT_MOVIE_ID,
         endpoint: 'https://api.themoviedb.org/3/movie/',
       }
     },
@@ -25,10 +26,10 @@
       getMovies(id) {
         axios(this.endpoint + id + '?api_key=1ae6bf73ea58a58290edad6afca876a9')
           .then(response => {
-            this.post = response.data
+            this.post = response.data;
           })
           .catch( error => {
-            console.log(error)
+            // console.log(error);
           })
       }
     },
@@ -43,29 +44,29 @@
 
 <style lang="scss" scoped>
   .post {
-    position: relative;
-    max-width: 500px;
     margin: 0 auto;
+    max-width: 500px;
     padding: 50px 20px 70px;
+    position: relative;
     &__title {
+      margin-left: 50px;
       position: relative;
       text-transform: uppercase;
       z-index: 1;
-      margin-left: 50px;
     }
     &__body {
       position: relative;
       z-index: 1;
     }
     &__id {
-      position: absolute;
-      font-size: 20px;
       bottom: -50px;
-      margin: 0;
       color: #eeeeee;
-      right: -20px;
-      line-height: 1;
+      font-size: 20px;
       font-weight: 900;
+      line-height: 1;
+      margin: 0;
+      position: absolute;
+      right: -20px;
       z-index: 0;
     }
   }

@@ -14,7 +14,7 @@
         </router-link>
       </aside>
       <div class="content">
-        <router-view></router-view>
+        <router-view />
       </div>
     </main>
   </div>
@@ -41,8 +41,7 @@
             this.movies = response.data.results;
           })
           .catch(error => {
-            console.log('-----error-------');
-            console.log(error);
+            // console.log(error);
           })
       }
     }
@@ -55,10 +54,10 @@
     padding: 0;
   }
   #app {
+    color: #2c3e50;
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: #2c3e50;
   }
   h1, h2 {
     font-weight: normal;
@@ -72,14 +71,14 @@
     margin: 0 10px;
   }
   header {
-    position: fixed;
+    background: #2b3147;
+    border-bottom: 1px solid #42b983;
     color: #48c6ae;
+    min-height: 90px;
+    position: fixed;
+    text-align: center;
     top: 0;
     width: 100%;
-    min-height: 90px;
-    border-bottom: 1px solid #42b983;
-    text-align: center;
-    background: #2b3147;
   }
   main {
     display: flex;
@@ -89,31 +88,31 @@
   }
   aside {
     background: #48c6ae;
+    border-right: 1px solid #42b983;
+    box-sizing: border-box;
+    color: #3c4765 !important;
     flex: 1 0 40%;
     height: 100%;
     overflow-y: auto;
-    width: 30%;
     padding: 50px 30px;
-    box-sizing: border-box;
-    border-right: 1px solid #42b983;
-    color: #3c4765 !important;
+    width: 30%;
   }
   .content {
-    flex: 1 1 70%;
-    display: flex;
     align-items: center;
-    justify-content: center;
     background: #3c4765;
     color: #50e4cc;
+    display: flex;
+    flex: 1 1 70%;
+    justify-content: center;
   }
   .link {
-    display: block;
-    text-decoration: none;
-    margin-bottom: 10px;
     color: #2c3e50;
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
     &--home {
-      text-transform: uppercase;
       margin-bottom: 30px;
+      text-transform: uppercase;
     }
     &.is-active {
       color: #fff;
